@@ -1,0 +1,43 @@
+﻿@model Item
+<script src="~/js/ckeditor/ckeditor.js"></script>
+<div>
+    <h1>Редактировать элемент</h1>
+    <div>
+        <form asp-area="Admin" asp-controller="Items" asp-action="Edit" method="post" enctype="multipart/form-data">
+
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="TypeId"/>
+            <input type="hidden" asp-for="ImageSource"/>
+
+            <div asp-validation-summary="All"></div>
+            <div>
+                <label asp-for="ImageSource"></label>
+                <input type="file" name="uploadedFile" id="uploadedFile" />
+                <div>
+                    <img src="~/images/items/@Model.ImageSource" height="200" />
+                </div>
+                <span asp-validation-for="ImageSource"></span>
+            </div>
+            <div>
+                <label asp-for="Title"></label>
+                <input asp-for="Title" />
+                <span asp-validation-for="Title"></span>
+            </div>
+
+            <div>
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description"></textarea>
+                <span asp-validation-for="Description"></span>
+            </div>
+            <div>
+                <input type="submit" value="Ок" />
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    window.onload = function() {
+        var newCKEdit = CKEDITOR.replace('@Html.IdFor(x=>x.Description)');
+        newCKEdit.updateElement();
+    }
+</script>

@@ -1,0 +1,18 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    @await Html.PartialAsync("HeaderPartial")
+</head>
+<body class="is-preload">
+    
+    <div id="content">
+        @RenderBody()
+    </div>
+
+    <!-- Sidebar -->
+    @await Html.PartialAsync("SidebarPartial")
+
+    @await Html.PartialAsync("ScriptsPartial")
+
+</body>
+</html>

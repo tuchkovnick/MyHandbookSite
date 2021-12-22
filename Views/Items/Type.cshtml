@@ -1,0 +1,13 @@
+﻿@model IQueryable<Item> 
+<ul style="list-style-type:none">
+    @foreach (var item in Model)
+    {
+        <li>
+            <a asp-area="" asp-controller="Services" asp-action="Index" asp-route-id="@item.Id">
+                <img class="item-image" src="~/images/items/@item.ImageSource" alt="" />
+            </a>
+            <h4>@item.Title</h4>
+            <p>@Html.Raw(item.Description)</p>
+        </li>
+    }
+</ul>

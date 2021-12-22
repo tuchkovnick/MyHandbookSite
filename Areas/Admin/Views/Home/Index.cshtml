@@ -1,0 +1,17 @@
+﻿@model IQueryable<ItemType>
+<div>
+    <h2>Панель администратора</h2>
+    <div>
+        <h1>Редактировать записи</h1>
+        <ul style="list-style-type:none">
+            @foreach (var type in Model)
+            {
+            <li>
+                <a asp-area="Admin" asp-controller="Types" asp-action="Edit" asp-route-id="@type.Id" method="get">@type.Title</a>
+                <a asp-area="Admin" asp-controller="Types" asp-action="Delete" asp-route-id="@type.Id">Удалить</a>
+            </li>
+            }
+        </ul>
+        <a asp-area="Admin" asp-controller="Types" asp-action="Add" method="get">Добавить тип</a>
+    </div>
+</div>

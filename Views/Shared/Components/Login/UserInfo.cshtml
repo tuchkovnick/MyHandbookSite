@@ -1,0 +1,17 @@
+﻿@model MyHandbookSiteUser
+<ul style="list-style-type:none">
+    @if (Model != null)
+    {
+        <li><h1>@Model.UserName</h1></li>
+        <li><img class="user-image" height="80" src="~/images/@Model.Image" alt="" /></li>
+        <li><a asp-area="" asp-controller="Account" asp-action="Profile" asp-route-id="@Model.Id">Личный кабинет</a></li>
+        <li><a asp-area="" asp-controller="Account" asp-action="Logout">Выйти</a></li>
+    }
+    else
+    {
+        <li><h1>Гость</h1></li>
+        <li><img class="user-image" height="80" src="~/images/guest.png" alt="" /></li>
+        <li><a asp-controller="Account" asp-action="Login" asp-area="">Войти</a></li>
+
+    }
+</ul>

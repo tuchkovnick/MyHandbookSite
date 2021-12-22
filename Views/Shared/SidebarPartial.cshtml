@@ -1,0 +1,30 @@
+﻿<div id="sidebar">
+
+    <!-- Logo -->
+    <h1 id="logo">
+        <a asp-controller="Home" asp-action="Index">Home</a>
+    </h1>
+
+    <!-- Nav -->
+    @(await Component.InvokeAsync<SidebarViewComponent>())
+
+    <!-- Search -->
+    <section class="box search">
+        @using (Html.BeginForm("Search", "Items", FormMethod.Get))
+        {
+            <input type="text" class="text" placeholder="Поиск" name="parameter" />
+        }
+    </section>
+
+    <section class="login-information-box">
+        @(await Component.InvokeAsync<LoginViewComponent>())
+    </section>
+
+    <!-- Copyright -->
+    <ul id="copyright">
+        <li>&copy;tuchkovnick</li>
+        <li>@Config.Email</li>
+        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+    </ul>
+
+</div>

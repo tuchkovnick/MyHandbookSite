@@ -1,0 +1,19 @@
+﻿@model IQueryable<ItemType>
+<nav id="nav">
+    @if (Model?.Any() == true)
+    {
+        <section>
+            <h2>Категории</h2>
+            <ul class="small-image-list">
+                @foreach  (ItemType type in Model)
+                {
+                    <li>
+                        <a asp-area="" asp-controller="Items" asp-action="Type" asp-route-id="@type.Id">
+                            @type.Title
+                        </a>
+                    </li>
+                }
+            </ul>
+        </section>
+    }
+</nav>
